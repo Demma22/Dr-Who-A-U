@@ -1,0 +1,23 @@
+{% extends 'products/base.html'%}
+{% load crispy_forms_tags%}
+{% load static %}
+{% block content%}
+<br/>
+
+
+  
+<div class="container">
+  <form method="POST" action = "" style="color: #ffff;">
+    <h1 class = "text-center" id="item">SALES FORM</h1><br>
+    {% csrf_token %}
+    {{sales_form | crispy}}
+    <input type = "submit" class="btn btn-success btn" type="button">
+  </form>
+</div>
+
+
+
+{% block footer %}
+{% endblock %}
+
+{% endblock %}

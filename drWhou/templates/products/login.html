@@ -1,0 +1,43 @@
+{% extends 'products/base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block content %}
+
+{% block nav %}
+
+{% endblock %}
+<br><p style="font-size: 60px; text-align: center; color: #36b380; font-weight: bolder;" 
+id="fontt">DR. WU HA YU PHARMACY</p><br>
+<p>
+  <div class="logo-container">
+    <img src="static/images/logo.svg.png" class="logo1">
+  </div>  
+</p>
+<hr>
+<div class="card-container">
+<div class="card">
+  <div class = "body container-fluid container login">
+      <div class="container container-fluid top">
+         <h1 class = "text-black text-center" style = "color: #0a0003 ">LOGIN.</h1><br><br>  
+      </div>     
+
+   <div class="container container-fluid">
+      <form id = "form" method="POST"> 
+          {% csrf_token %}  
+          {{form | crispy}}
+          <br> <br> 
+          <input type="submit" name = "Submit" class="btn btn-info btn-success btn-block" type="button">
+          <br>                
+    </form>      
+  </div>
+</div>
+</div> 
+</div>
+
+
+{% block footer %}
+{% endblock %}
+
+
+{% endblock %}

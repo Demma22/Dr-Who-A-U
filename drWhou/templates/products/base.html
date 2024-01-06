@@ -1,0 +1,113 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <title>WuHaYu-Pharmacy</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'images/logo.svg.png' %}">
+    <link rel = "stylesheet" href = {% static 'css/main.css'%}>
+     <!-- Raleway font -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Raleway"
+      rel="stylesheet"
+    />
+    <!-- Montserrat font -->
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+</head>
+<body>
+  {% block nav %}
+    <nav class="navbar navbar-expand-lg navbar-dark "> 
+        <a class="nav-link" href=""><h1 class="navbar-brand" style = "font-size: 25px" id="drw">DR. WUHAYU</h1></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="nav navbar-nav ml-auto" id="navlist">
+           {% if user.is_authenticated%}
+              <li class="nav-item">
+                <a class="nav-link" style="color: #36b380;" href="{% url 'home' %}">HOME</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" style="color: #36b380;" href="{% url 'receipt' %}">RECEIPTS</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" style="color: #36b380;" href="{% url 'all_sales' %}">ALL SALES</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" style="color: #36b380;" href="{% url 'logout'%}">LOGOUT</a>
+              </li>
+            {% endif %}
+          </ul>
+     </nav>
+  {% endblock %}
+    {% block content%}
+    
+    {% endblock%}
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</body>
+
+{% block footer %}
+<!-- Remove the container if you want to extend the Footer to full width. -->
+
+<div class="container">
+  <footer class="footer" style="background-color: #343a40;">
+  <div class="footer-container">
+    <div class="row">
+      <div class="col-lg-6 col-md-12 mb-4">
+        <h5 class="mb-3" style="letter-spacing: 10px; color: #36b380; text-align: center; font-size: 40px;">Dr. WuHaYu-Pharmacy</h5>
+        
+        <p style="color: #ffffff;">     "To improve the health and wellness of our communities through engaging
+           experiences that provide our customers with the best products, services 
+           and advice to meet their unique needs."</p>
+        <p>
+          <div class="logo-container">
+          <img src="{% static 'images/logo.svg.png' %}" alt="My Logo" class="logo2">
+          </div>
+        </p>
+      </div>
+      <div class="col-lg-3 col-md-6 mb-4">
+        <h5 class="mb-3" style="letter-spacing: 2px; color: #36b380;">Pages</h5>
+        <ul class="list-unstyled mb-0">
+          <li class="mb-1">
+            <a href="{% url 'home' %}" style="color: #ffffff;">Home</a>
+          </li>
+          <li class="mb-1">
+            <a href="{% url 'receipt' %}" style="color: #ffffff;">Receipts</a>
+          </li>
+          <li class="mb-1">
+            <a href="{% url 'all_sales' %}" style="color: #ffffff;">All Sales</a>
+          </li>
+          
+        </ul>
+      </div>
+      <div class="col-lg-3 col-md-6 mb-4">
+        <h5 class="mb-1" style="letter-spacing: 2px; color: #36b380;">opening hours</h5>
+        <table class="table" style="color: #ffffff; border-color: #666;">
+          <tbody>
+            <tr>
+              <td>Mon - Fri:</td>
+              <td>8am - 9pm</td>
+            </tr>
+            <tr>
+              <td>Sat - Sun:</td>
+              <td>8am - 1am</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="text-center p-3" style="background-color: ffffff; color: #36b380;">
+    © 2023 Copyright: Demma
+    <a class="text-light" href="https://profiles.stanford.edu/joy-wu">DrWuHaYu.com</a>
+  </div>
+  <!-- Copyright -->
+</footer>
+</div>
+
+{% endblock %}
+</html>

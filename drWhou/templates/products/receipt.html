@@ -1,0 +1,31 @@
+{% extends 'products/base.html'%} {% block content%}
+<br /><br>
+<div class="container">
+  <h1 class="card-header text-center" style="color:#36b380" id="item">ALL RECEIPTS</h1><br>
+  {% for sale in sales %}
+  <div class="card2">
+    <div class="card-body">
+      <h3 class="card-title" style="background-color: #a1cebc;"><b>Customer</b> : {{sale.issued_to | title}}</h3>
+      <h6 class="card-text"><b>Item</b> : {{sale.item}}</h6>
+      <h6 class="card-text"><b>Amount Received</b>:  UGX{{ sale.ammount_received }}</h6>
+      <h6 class="card-text"><b>Quantity</b>: {{sale.quantity }}</h6>
+      <h3 style="font-weight: 300px;"><b>Total Price</b> :  UGX{{ sale.get_total }}</h3>
+      <div style="flex: 1">
+        <h6 class="card-text" st><b>Change Collected</b>:  UGX{{ sale.get_change }}</h6>
+        <!-- <h6 class="card-text" st><b>Total VAT</b>:  UGX{{ sale.get_vat }}</h6> -->
+        <h6 class="card-text" st><b>Date and Time</b>:  UGX{{ sale.date }}</h6>
+        <a href="{% url 'receipt_detail' sale.id %}">
+          <input
+            type="submit"
+            value="Final Receipt"
+            class="btn btn-success"
+            type="button"
+          />
+        </a>
+      </div>
+    </div>
+  </div>
+  <br />
+  {% endfor %}
+</div>
+{% endblock %}
